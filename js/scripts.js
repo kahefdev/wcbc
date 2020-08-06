@@ -5,7 +5,6 @@
  */
 (function ($) {
   "use strict"; // Start of use strict
-<<<<<<< HEAD
 
   // Smooth scrolling using jQuery easing
   $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function () {
@@ -29,31 +28,6 @@
     }
   });
 
-=======
-
-  // Smooth scrolling using jQuery easing
-  $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function () {
-    if (
-      location.pathname.replace(/^\//, "") ==
-        this.pathname.replace(/^\//, "") &&
-      location.hostname == this.hostname
-    ) {
-      var target = $(this.hash);
-      target = target.length ? target : $("[name=" + this.hash.slice(1) + "]");
-      if (target.length) {
-        $("html, body").animate(
-          {
-            scrollTop: target.offset().top - 72,
-          },
-          1000,
-          "easeInOutExpo"
-        );
-        return false;
-      }
-    }
-  });
-
->>>>>>> 8536d04b58b1f77fb5a90bbbb6be8bdd7e96c14b
   // Closes responsive menu when a scroll trigger link is clicked
   $(".js-scroll-trigger").click(function () {
     $(".navbar-collapse").collapse("hide");
@@ -64,75 +38,6 @@
     target: "#mainNav",
     offset: 74,
   });
-<<<<<<< HEAD
-
-  $("#pcbox").click(() => {
-    if (document.getElementById("pcbox").checked) {
-      document.querySelectorAll(".pcbox").forEach((val) => {
-        val.setAttribute("readonly", true);
-      });
-    } else {
-      document.querySelectorAll(".pcbox").forEach((val) => {
-        val.removeAttribute("readonly");
-      });
-    }
-  });
-
-  $("#submit").click(async () => {
-    console.log("Submit button clicked");
-
-    let ttype = [];
-    document.querySelectorAll(".ttype").forEach((val) => {
-      console.log(val);
-      if (val.checked) {
-        return ttype.push(val.value);
-      }
-      console.log(ttype);
-    });
-    let name = $("#name").val();
-    console.log(name);
-    let res = await axios({
-      method: "post",
-      url: "http://127.0.0.1:3000/form/form-data",
-      data: {
-        // tname,
-        ttype,
-        // fname,
-        // lname,
-        // gender,
-        // abn,
-        // street,
-        // suburb,
-        // state,
-        // postcode,
-        // paddress,
-        // psuburb,
-        // pstate,
-        // pcode,
-        // ophone,
-        // hphone,
-        // mobile,
-        // fax,
-        // website,
-        // email,
-        // lnumber,
-        // lexpiry,
-        // dob,
-        // partnersname,
-        // position,
-        // aemail,
-        // toi: [],
-        // whoref,
-        // ypref,
-        // cande,
-        // privacydec,
-        // coe,
-        // aom,
-        // iread,
-      },
-    });
-
-=======
 
   $("#pcbox").click(() => {
     if (document.getElementById("pcbox").checked) {
@@ -204,7 +109,6 @@
     // aom,
     // iread,
     // },
->>>>>>> 8536d04b58b1f77fb5a90bbbb6be8bdd7e96c14b
     $("#becomemember").html(
       '<div class="jumbotron text-center">\
     <h1 class="display-3">Thank You!</h1>\
