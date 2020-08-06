@@ -30,39 +30,64 @@
         }
     });
 
+    // Closes responsive menu when a scroll trigger link is clicked
+    $(".js-scroll-trigger").click(function () {
+        $(".navbar-collapse").collapse("hide");
+    });
 
+    // Activate scrollspy to add active class to navbar items on scroll
+    $("body").scrollspy({
+        target: "#mainNav",
+        offset: 74,
+    });
 
-    $("#pcbox").click(() => {
-        if (document.getElementById("pcbox").checked) {
-          document.querySelectorAll(".pcbox").forEach((val) => {
-            val.setAttribute("readonly", true);
-          });
+    // Collapse Navbar
+    var navbarCollapse = function () {
+        if ($("#mainNav").offset().top > 100) {
+            $("#mainNav").addClass("navbar-shrink");
         } else {
-          document.querySelectorAll(".pcbox").forEach((val) => {
-            val.removeAttribute("readonly");
-          });
+            $("#mainNav").removeClass("navbar-shrink");
         }
+    };
+    // Collapse now if page is not at top
+    navbarCollapse();
+    // Collapse the navbar when page is scrolled
+    $(window).scroll(navbarCollapse);
+})(jQuery); // End of use strict
+
+//Getting values from pcboxes for postal address checkbox
+
+$("#pcbox").click(() => {
+    if (document.getElementById("pcbox").checked) {
+      document.querySelectorAll(".pcbox").forEach((val) => {
+        val.setAttribute("readonly", true);
       });
+    } else {
+      document.querySelectorAll(".pcbox").forEach((val) => {
+        val.removeAttribute("readonly");
+      });
+    }
+  });
+
 
     //Form Validation!
     const validateInput = (e) =>{
-      console.log(e.target.value.length);
-      if(e.target.value.length>10)
-      {
-        fname.classList.add('is-valid');
-        fname.classList.remove('is-invalid')
+        console.log(e.target.value.length);
+        if(e.target.value.length>10)
+        {
+          fname.classList.add('is-valid');
+          fname.classList.remove('is-invalid')
+        }
+        else{
+          fname.classList.add('is-invalid');
+          fname.classList.remove('is-valid');
+        }
       }
-      else{
-        fname.classList.add('is-invalid');
-        fname.classList.remove('is-valid');
-      }
-    }
-    let fname = document.getElementById('fname');
-    console.log(fname);
-    fname.oninput = validateInput;
+      let fname = document.getElementById('fname');
+      console.log(fname);
+      fname.oninput = validateInput;
 
-  
-  
+
 
      $("#membership-form").submit(async (event) => {
       
@@ -80,6 +105,8 @@
             data[val.id] = val.value
           }
         })
+
+
 
         console.log("Submit button clicked");
         document.querySelectorAll(".fv").forEach((val) => {
@@ -146,29 +173,15 @@
       //   );
       // });
       })
-    
 
-    // Closes responsive menu when a scroll trigger link is clicked
-    $(".js-scroll-trigger").click(function () {
-        $(".navbar-collapse").collapse("hide");
-    });
-
-    // Activate scrollspy to add active class to navbar items on scroll
-    $("body").scrollspy({
-        target: "#mainNav",
-        offset: 74,
-    });
-
-    // Collapse Navbar
-    var navbarCollapse = function () {
-        if ($("#mainNav").offset().top > 100) {
-            $("#mainNav").addClass("navbar-shrink");
-        } else {
-            $("#mainNav").removeClass("navbar-shrink");
-        }
-    };
-    // Collapse now if page is not at top
-    navbarCollapse();
-    // Collapse the navbar when page is scrolled
-    $(window).scroll(navbarCollapse);
-})(jQuery); // End of use strict
+ //checking if terms and conditions are accepted
+    document.getElementById('iread').addEventListener('change',function(){
+      console.log(this.checked)
+      if(this.checked){
+        document.getElementById('submit').removeAttribute('disabled');
+      }
+      else{
+        console.log('unchecked');
+        document.getElementById('submit').setAttribute('disabled',true);
+      }
+    })
