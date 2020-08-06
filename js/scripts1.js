@@ -51,72 +51,7 @@
     }
   });
 
-  $("#submit").click(async () => {
-    let data = {};
-    console.log("Submit button clicked");
-    document.querySelectorAll(".fv").forEach((val) => {
-      data[val.id] = val.value;
-    });
-    console.log(data);
-    let ttypec = [];
-    document.querySelectorAll(".ttypec").forEach((val) => {
-      console.log(val.value);
-      if (val.checked) {
-        return ttypec.push(val.value);
-      }
-      console.log(ttypec);
-    });
-    data["ttypec"] = ttypec;
-    let res = await axios({
-      method: "post",
-      url: "http://127.0.0.1:3000/form/form-data",
-      data,
-    });
-
-    // data: {
-    //   tname,
-    //   ttypec,
-    // fname,
-    // lname,
-    // gender,
-    // abn,
-    // street,
-    // suburb,
-    // state,
-    // postcode,
-    // paddress,
-    // psuburb,
-    // pstate,
-    // pcode,
-    // ophone,
-    // hphone,
-    // mobile,
-    // fax,
-    // website,
-    // email,
-    // lnumber,
-    // lexpiry,
-    // dob,
-    // partnersname,
-    // position,
-    // aemail,
-    // toi: [],
-    // whoref,
-    // ypref,
-    // cande,
-    // privacydec,
-    // coe,
-    // aom,
-    // iread,
-    // },
-    $("#becomemember").html(
-      '<div class="jumbotron text-center">\
-    <h1 class="display-3">Thank You!</h1>\
-    <p class="lead"><strong>Please check your email</strong> for further instructions on how to complete your account setup.</p>\
-    <hr>\
-  </div>'
-    );
-  });
+  
 
   // Collapse Navbar
   var navbarCollapse = function () {
