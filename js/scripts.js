@@ -66,8 +66,7 @@
       }
       console.log(ttypec);
     });
-    let name = $("#name").val();
-    console.log(name);
+    data["ttypec"] = ttypec;
     let res = await axios({
       method: "post",
       url: "http://127.0.0.1:3000/form/form-data",
